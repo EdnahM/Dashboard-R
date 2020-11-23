@@ -1,0 +1,79 @@
+---
+title: "Eddycoder's Report"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(DT)
+```
+# Start
+
+Column {data-width=400, .tabset}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+chartA
+```
+
+### Chart B
+
+```{r}
+chartA2
+```
+
+
+Column {data-width=300}
+-----------------------------------------------------------------------
+
+### ValueBox
+
+```{r}
+valueBox(
+    value = dim(mydata)[1],
+    caption = "My Values",
+    icon = "fa-pencil", 
+    color = 'lightblue')
+```
+
+### Grid 2
+
+```{r}
+gauge(80, min = 0, max = 100,
+      gaugeSectors(success = c(90,100),
+                   warning = c(50,89),
+                   danger = c(0, 49)))
+```
+
+
+Column {data-width=300}
+-----------------------------------------------------------------------
+
+
+
+### Grid 3 
+
+Hello this is my Report.
+I will love programming always.
+<font color="blue"> Hello this is a Blue Color</font>
+
+
+
+# Expert
+
+``` {r}
+datatable(
+  mydata,
+  extensions = 'Buttons', 
+  options = list(
+    dom = 'Bfrtip',
+    buttons = c('print','copy','csv')
+  )
+)
+```
+
